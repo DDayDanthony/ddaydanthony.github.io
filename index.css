@@ -1,0 +1,22 @@
+/* TYPE SELECTORS */
+h1 {
+    color: rgb(255, 166, 0);
+    font-family: 'franklin gothic medium', 'franklin gothic', 'ITC Franklin Gothic', Calibri, 'Arial Narrow', Arial, sans-serif;
+}
+/* this is basically the entire document */
+/* apply these properties to everything in the body (p1, h1, etc,) */
+body {
+    font-family: 'gillo sans', 'gill sans mt', Calibri, 'trebuchet ms', sans-serif;
+}
+p1 {
+    color: #5490ff;
+    font-family: 'franklin gothic medium', 'franklin gothic', 'ITC Franklin Gothic', Calibri, 'Arial Narrow', Arial, sans-serif;
+}
+
+/* CLASS SELECTORS */
+
+/* class for my reading responses */
+.reading-response {
+
+    font-family:'Courier New', Courier, monospace
+}
