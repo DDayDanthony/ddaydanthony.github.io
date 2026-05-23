@@ -1,17 +1,418 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Page Title Goes Here</title>
-    </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dan — VISA 2P61</title>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0020;
+      --hot: #ff2d6b;
+      --teal: #00c9b1;
+      --orange: #ff7a00;
+      --yellow: #ffe600;
+      --purple: #7b2fff;
+      --dim: rgba(255,230,0,0.45);
+    }
 
-      <!-- NOTE! We've added this here for week 2! -->
-      <link rel="stylesheet" href="index.css"> 
-    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <body>
-    <!-- reading responses -->
+    body {
+      background: var(--bg);
+      color: var(--yellow);
+      font-family: 'Philosopher', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  </body>
+    /* OP-ART tunnel background */
+    .tunnel {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .tunnel svg {
+      width: 100vw;
+      height: 100vh;
+      animation: tunnelPulse 6s ease-in-out infinite alternate;
+    }
+    @keyframes tunnelPulse {
+      from { transform: scale(1) rotate(0deg); opacity: 0.12; }
+      to   { transform: scale(1.04) rotate(1deg); opacity: 0.18; }
+    }
+
+    /* color shift overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%,
+        transparent 30%,
+        rgba(13,0,32,0.7) 70%,
+        rgba(13,0,32,0.95) 100%);
+      pointer-events: none;
+    }
+
+    /* outer border — concert poster style */
+    .border-frame {
+      position: fixed;
+      inset: 12px;
+      z-index: 2;
+      border: 3px solid var(--hot);
+      border-radius: 4px;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 6px var(--bg), inset 0 0 0 9px var(--teal);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 48px 100px;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 36px;
+    }
+
+    .course-tag {
+      font-family: 'Righteous', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+
+    /* big name — warped concert poster type */
+    h1 {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(80px, 18vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.18em;
+      color: var(--hot);
+      text-shadow:
+        4px 4px 0 var(--purple),
+        -2px -2px 0 var(--teal),
+        0 0 60px rgba(255,45,107,0.4);
+      margin-bottom: 16px;
+      /* subtle warp like concert poster lettering */
+      transform: perspective(400px) rotateX(4deg);
+    }
+
+    .subtitle {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--dim);
+      letter-spacing: 0.12em;
+    }
+
+    /* header divider — op-art stripe bar */
+    .stripe-bar {
+      height: 10px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--hot) 0px, var(--hot) 8px,
+        var(--teal) 8px, var(--teal) 16px
+      );
+      margin: 24px 0;
+      opacity: 0.6;
+    }
+
+    /* section title */
+    .section-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .section-title::before,
+    .section-title::after {
+      content: '◉';
+      margin: 0 12px;
+      color: var(--teal);
+    }
+
+    section { margin-bottom: 52px; }
+
+    /* assignment cards */
+    .assignment {
+      border: 2px solid var(--hot);
+      border-radius: 2px;
+      padding: 20px 24px;
+      margin-bottom: 6px;
+      position: relative;
+      background: rgba(255,45,107,0.04);
+      transition: background 0.2s, border-color 0.2s;
+      /* inset teal border — concert poster double border */
+      box-shadow: inset 0 0 0 1px rgba(0,201,177,0.2);
+    }
+    .assignment:hover {
+      background: rgba(255,45,107,0.09);
+      border-color: var(--yellow);
+      box-shadow: inset 0 0 0 1px var(--teal), 0 0 20px rgba(255,45,107,0.15);
+    }
+
+    .assignment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .assignment-name {
+      font-family: 'Righteous', sans-serif;
+      font-size: 15px;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+    }
+
+    .assignment-links { display: flex; gap: 16px; }
+    .assignment-links a {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      font-family: 'Righteous', sans-serif;
+      transition: color 0.2s;
+    }
+    .assignment-links a:hover { color: var(--yellow); }
+
+    .assignment-desc {
+      font-size: 12px;
+      color: var(--dim);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* commit timeline */
+    .commit {
+      padding: 16px 0 16px 28px;
+      border-left: 2px solid var(--purple);
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .commit::before {
+      content: '◉';
+      position: absolute;
+      left: -10px; top: 16px;
+      font-size: 10px;
+      color: var(--hot);
+      text-shadow: 0 0 8px var(--hot);
+    }
+
+    .commit-hash {
+      font-size: 10px;
+      color: var(--teal);
+      margin-bottom: 4px;
+      letter-spacing: 0.12em;
+      font-family: 'Righteous', sans-serif;
+    }
+    .commit-hash a { color: inherit; text-decoration: none; }
+    .commit-hash a:hover { color: var(--yellow); }
+
+    .commit-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: 13px;
+      color: var(--yellow);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .commit-note {
+      font-size: 12px;
+      color: var(--dim);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* readings */
+    .readings-box {
+      border: 2px solid var(--teal);
+      border-radius: 2px;
+      padding: 22px 26px;
+      font-size: 12px;
+      color: var(--dim);
+      font-style: italic;
+      line-height: 1.9;
+      text-align: center;
+      background: rgba(0,201,177,0.03);
+    }
+
+    /* flourish divider */
+    .flourish {
+      text-align: center;
+      font-size: 16px;
+      letter-spacing: 0.5em;
+      color: var(--orange);
+      margin: 32px 0;
+      opacity: 0.7;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 16px;
+      font-family: 'Righteous', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,230,0,0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OP-ART TUNNEL -->
+  <div class="tunnel">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .r { fill: none; }
+          .a { stroke: #ff2d6b; }
+          .b { stroke: #00c9b1; }
+        </style>
+      </defs>
+      <!-- alternating hot pink / teal concentric rectangles -->
+      <rect class="r a" x="10"  y="10"  width="780" height="780" stroke-width="3"/>
+      <rect class="r b" x="30"  y="30"  width="740" height="740" stroke-width="3"/>
+      <rect class="r a" x="55"  y="55"  width="690" height="690" stroke-width="3"/>
+      <rect class="r b" x="85"  y="85"  width="630" height="630" stroke-width="3"/>
+      <rect class="r a" x="120" y="120" width="560" height="560" stroke-width="3"/>
+      <rect class="r b" x="160" y="160" width="480" height="480" stroke-width="3"/>
+      <rect class="r a" x="205" y="205" width="390" height="390" stroke-width="3"/>
+      <rect class="r b" x="255" y="255" width="290" height="290" stroke-width="3"/>
+      <rect class="r a" x="310" y="310" width="180" height="180" stroke-width="3"/>
+      <rect class="r b" x="368" y="368" width="64"  height="64"  stroke-width="3"/>
+      <!-- concentric circles overlay -->
+      <circle class="r a" cx="400" cy="400" r="380" stroke-width="1.5" opacity="0.5"/>
+      <circle class="r b" cx="400" cy="400" r="320" stroke-width="1.5" opacity="0.5"/>
+      <circle class="r a" cx="400" cy="400" r="260" stroke-width="1.5" opacity="0.5"/>
+      <circle class="r b" cx="400" cy="400" r="200" stroke-width="1.5" opacity="0.5"/>
+      <circle class="r a" cx="400" cy="400" r="140" stroke-width="1.5" opacity="0.5"/>
+      <circle class="r b" cx="400" cy="400" r="80"  stroke-width="1.5" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="overlay"></div>
+  <div class="border-frame"></div>
+
+  <div class="wrap">
+
+    <header>
+      <p class="course-tag">Brock University &nbsp;·&nbsp; VISA 2P61 &nbsp;·&nbsp; Website Design &nbsp;·&nbsp; Spring 2026</p>
+      <h1>DAN</h1>
+      <div class="stripe-bar"></div>
+      <p class="subtitle">student work index</p>
+    </header>
+
+    <!-- ASSIGNMENTS -->
+    <section>
+      <p class="section-title">Assignments</p>
+
+      <div class="assignment">
+        <div class="assignment-header">
+          <span class="assignment-name">A1 — Git Labyrinth</span>
+          <div class="assignment-links">
+            <a href="https://DDayDanthony.github.io/a1-git-labyrinth" target="_blank">Live</a>
+            <a href="https://github.com/DDayDanthony/a1-git-labyrinth" target="_blank">Repo</a>
+          </div>
+        </div>
+        <p class="assignment-desc">Exploring git branching and version control through a navigable structure.</p>
+      </div>
+
+      <div class="assignment">
+        <div class="assignment-header">
+          <span class="assignment-name">A2 — One Image × 5</span>
+          <div class="assignment-links">
+            <a href="https://DDayDanthony.github.io/a2-one-image-x5" target="_blank">Live</a>
+            <a href="https://github.com/DDayDanthony/a2-one-image-x5" target="_blank">Repo</a>
+          </div>
+        </div>
+        <p class="assignment-desc">One image transformed five different ways using HTML and CSS.</p>
+      </div>
+
+      <div class="assignment">
+        <div class="assignment-header">
+          <span class="assignment-name">A3 — Misbehaving Interface</span>
+          <div class="assignment-links">
+            <a href="https://DDayDanthony.github.io/a3-misbehaving-interface" target="_blank">Live</a>
+            <a href="https://github.com/DDayDanthony/a3-misbehaving-interface" target="_blank">Repo</a>
+          </div>
+        </div>
+        <p class="assignment-desc">A form that behaves exactly as intended — just not as you'd expect. Five deliberate misbehaviors targeting spectatorial mastery.</p>
+      </div>
+    </section>
+
+    <div class="flourish">◉ · ◉ · ◉</div>
+
+    <!-- NOTABLE COMMITS -->
+    <section>
+      <p class="section-title">Notable Commits — A3</p>
+
+      <div class="commit">
+        <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/db00df6" target="_blank">db00df6</a></p>
+        <p class="commit-title">BEHAVIOR 3 — self-erasing name input</p>
+        <p class="commit-note">Every 3rd keystroke the field deletes, swaps a character, or falsely accuses the user. The most basic expectation of a text field is quietly violated.</p>
+      </div>
+
+      <div class="commit">
+        <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/7e9f902" target="_blank">7e9f902</a></p>
+        <p class="commit-title">BEHAVIOR 2 — gaslighting email feedback</p>
+        <p class="commit-note">Success and error messages are assigned randomly regardless of input. The interface confidently lies, creating learned helplessness.</p>
+      </div>
+
+      <div class="commit">
+        <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/4404d69" target="_blank">4404d69</a></p>
+        <p class="commit-title">BEHAVIOR 5 — lying slider</p>
+        <p class="commit-note">Labeled "Font Size" — dragging it actually rotates the entire page. The label promises one control while delivering something spatially disorienting.</p>
+      </div>
+
+      <div class="commit">
+        <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/13f9689" target="_blank">13f9689</a></p>
+        <p class="commit-title">BEHAVIOR 4 — multiplying checkboxes</p>
+        <p class="commit-note">Each checkbox spawns more with absurd consent terms. A parody of dark-pattern UI — the goal of completion keeps receding forever.</p>
+      </div>
+
+      <div class="commit">
+        <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/e60b348" target="_blank">e60b348</a></p>
+        <p class="commit-title">BEHAVIOR 1 — fleeing submit button</p>
+        <p class="commit-note">The button flees the cursor, shrinks when nearly caught, removes itself on click, then re-spawns randomly with a fake success message followed by an error.</p>
+      </div>
+
+    </section>
+
+    <div class="flourish">◉ · ◉ · ◉</div>
+
+    <!-- WEEKLY READINGS -->
+    <section>
+      <p class="section-title">Weekly Readings</p>
+      <div class="readings-box">
+        Reading responses are submitted weekly to Brightspace.<br>
+        Links will be added here as the course progresses.
+      </div>
+    </section>
+
+    <footer>
+      Dan &nbsp;·&nbsp; Brock University &nbsp;·&nbsp; VISA 2P61 &nbsp;·&nbsp; Spring 2026
+    </footer>
+
+  </div>
+
+</body>
 </html>
