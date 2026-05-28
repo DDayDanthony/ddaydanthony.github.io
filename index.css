@@ -1,1 +1,69 @@
 /* TYPE SELECTORS */
+.reading-body {
+  display: none;
+  padding: 16px 24px 8px;
+}
+
+.reading-card.open .reading-body {
+  display: block;
+}
+
+.reading-card.open .reading-chevron {
+  transform: rotate(180deg);
+}
+
+.reading-chevron {
+  transition: transform 0.2s;
+  color: var(--teal);
+  font-size: 10px;
+}
+
+.reading-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px 24px;
+  text-align: left;
+}
+
+.reading-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reading-week {
+  font-family: 'Righteous', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.reading-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: 13px;
+  color: var(--yellow);
+  letter-spacing: 0.06em;
+}
+
+.reading-author {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--dim);
+}
+
+.reading-card {
+  border: 2px solid var(--teal);
+  border-radius: 2px;
+  margin-bottom: 6px;
+  background: rgba(0,201,177,0.03);
+}
+
+.reading-card.open {
+  border-color: var(--hot);
+}

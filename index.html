@@ -15,9 +15,9 @@
       --purple: #7b2fff;
       --dim: rgba(255,230,0,0.45);
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     body {
       background: var(--bg);
       color: var(--yellow);
@@ -25,8 +25,7 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* OP-ART tunnel background */
+ 
     .tunnel {
       position: fixed;
       inset: 0;
@@ -45,8 +44,7 @@
       from { transform: scale(1) rotate(0deg); opacity: 0.12; }
       to   { transform: scale(1.04) rotate(1deg); opacity: 0.18; }
     }
-
-    /* color shift overlay */
+ 
     .overlay {
       position: fixed;
       inset: 0;
@@ -57,8 +55,7 @@
         rgba(13,0,32,0.95) 100%);
       pointer-events: none;
     }
-
-    /* outer border — concert poster style */
+ 
     .border-frame {
       position: fixed;
       inset: 12px;
@@ -68,7 +65,7 @@
       pointer-events: none;
       box-shadow: inset 0 0 0 6px var(--bg), inset 0 0 0 9px var(--teal);
     }
-
+ 
     .wrap {
       position: relative;
       z-index: 3;
@@ -76,14 +73,13 @@
       margin: 0 auto;
       padding: 64px 48px 100px;
     }
-
-    /* HEADER */
+ 
     header {
       text-align: center;
       margin-bottom: 64px;
       padding-bottom: 36px;
     }
-
+ 
     .course-tag {
       font-family: 'Righteous', sans-serif;
       font-size: 9px;
@@ -92,8 +88,7 @@
       color: var(--teal);
       margin-bottom: 24px;
     }
-
-    /* big name — warped concert poster type */
+ 
     h1 {
       font-family: 'Righteous', sans-serif;
       font-size: clamp(80px, 18vw, 140px);
@@ -105,18 +100,16 @@
         -2px -2px 0 var(--teal),
         0 0 60px rgba(255,45,107,0.4);
       margin-bottom: 16px;
-      /* subtle warp like concert poster lettering */
       transform: perspective(400px) rotateX(4deg);
     }
-
+ 
     .subtitle {
       font-style: italic;
       font-size: 13px;
       color: var(--dim);
       letter-spacing: 0.12em;
     }
-
-    /* header divider — op-art stripe bar */
+ 
     .stripe-bar {
       height: 10px;
       background: repeating-linear-gradient(
@@ -127,8 +120,7 @@
       margin: 24px 0;
       opacity: 0.6;
     }
-
-    /* section title */
+ 
     .section-title {
       font-family: 'Righteous', sans-serif;
       font-size: 9px;
@@ -145,10 +137,9 @@
       margin: 0 12px;
       color: var(--teal);
     }
-
+ 
     section { margin-bottom: 52px; }
-
-    /* assignment cards */
+ 
     .assignment {
       border: 2px solid var(--hot);
       border-radius: 2px;
@@ -157,7 +148,6 @@
       position: relative;
       background: rgba(255,45,107,0.04);
       transition: background 0.2s, border-color 0.2s;
-      /* inset teal border — concert poster double border */
       box-shadow: inset 0 0 0 1px rgba(0,201,177,0.2);
     }
     .assignment:hover {
@@ -165,7 +155,7 @@
       border-color: var(--yellow);
       box-shadow: inset 0 0 0 1px var(--teal), 0 0 20px rgba(255,45,107,0.15);
     }
-
+ 
     .assignment-header {
       display: flex;
       justify-content: space-between;
@@ -174,14 +164,14 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-
+ 
     .assignment-name {
       font-family: 'Righteous', sans-serif;
       font-size: 15px;
       color: var(--yellow);
       letter-spacing: 0.06em;
     }
-
+ 
     .assignment-links { display: flex; gap: 16px; }
     .assignment-links a {
       font-size: 9px;
@@ -193,15 +183,14 @@
       transition: color 0.2s;
     }
     .assignment-links a:hover { color: var(--yellow); }
-
+ 
     .assignment-desc {
       font-size: 12px;
       color: var(--dim);
       line-height: 1.8;
       font-style: italic;
     }
-
-    /* commit timeline */
+ 
     .commit {
       padding: 16px 0 16px 28px;
       border-left: 2px solid var(--purple);
@@ -216,7 +205,7 @@
       color: var(--hot);
       text-shadow: 0 0 8px var(--hot);
     }
-
+ 
     .commit-hash {
       font-size: 10px;
       color: var(--teal);
@@ -226,7 +215,7 @@
     }
     .commit-hash a { color: inherit; text-decoration: none; }
     .commit-hash a:hover { color: var(--yellow); }
-
+ 
     .commit-title {
       font-family: 'Righteous', sans-serif;
       font-size: 13px;
@@ -234,28 +223,14 @@
       margin-bottom: 6px;
       letter-spacing: 0.04em;
     }
-
+ 
     .commit-note {
       font-size: 12px;
       color: var(--dim);
       line-height: 1.8;
       font-style: italic;
     }
-
-    /* readings */
-    .readings-box {
-      border: 2px solid var(--teal);
-      border-radius: 2px;
-      padding: 22px 26px;
-      font-size: 12px;
-      color: var(--dim);
-      font-style: italic;
-      line-height: 1.9;
-      text-align: center;
-      background: rgba(0,201,177,0.03);
-    }
-
-    /* flourish divider */
+ 
     .flourish {
       text-align: center;
       font-size: 16px;
@@ -264,7 +239,7 @@
       margin: 32px 0;
       opacity: 0.7;
     }
-
+ 
     footer {
       text-align: center;
       margin-top: 16px;
@@ -274,11 +249,103 @@
       text-transform: uppercase;
       color: rgba(255,230,0,0.25);
     }
+ 
+    /* ── READING CARDS ── */
+    .reading-card {
+      border: 2px solid var(--teal);
+      border-radius: 2px;
+      margin-bottom: 6px;
+      background: rgba(0,201,177,0.03);
+      transition: border-color 0.2s;
+    }
+    .reading-card.open {
+      border-color: var(--hot);
+    }
+ 
+    .reading-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 16px 24px;
+      text-align: left;
+    }
+ 
+    .reading-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+ 
+    .reading-week {
+      font-family: 'Righteous', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+ 
+    .reading-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: 13px;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+    }
+ 
+    .reading-author {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--dim);
+    }
+ 
+    .reading-chevron {
+      color: var(--teal);
+      font-size: 10px;
+      transition: transform 0.2s;
+    }
+    .reading-card.open .reading-chevron {
+      transform: rotate(180deg);
+    }
+ 
+    .reading-body {
+      display: none;
+      padding: 0 24px 16px;
+    }
+    .reading-card.open .reading-body {
+      display: block;
+    }
+ 
+    .reading-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+    }
+    .reading-body ul li {
+      font-size: 12px;
+      color: var(--dim);
+      line-height: 1.8;
+      font-style: italic;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0,201,177,0.1);
+    }
+    .reading-body ul li:last-child {
+      border-bottom: none;
+    }
+ 
+    .empty-label {
+      font-size: 12px;
+      color: var(--dim);
+      font-style: italic;
+      text-align: center;
+      padding: 8px 0 16px;
+    }
   </style>
 </head>
 <body>
-
-  <!-- OP-ART TUNNEL -->
+ 
   <div class="tunnel">
     <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -288,7 +355,6 @@
           .b { stroke: #00c9b1; }
         </style>
       </defs>
-      <!-- alternating hot pink / teal concentric rectangles -->
       <rect class="r a" x="10"  y="10"  width="780" height="780" stroke-width="3"/>
       <rect class="r b" x="30"  y="30"  width="740" height="740" stroke-width="3"/>
       <rect class="r a" x="55"  y="55"  width="690" height="690" stroke-width="3"/>
@@ -299,7 +365,6 @@
       <rect class="r b" x="255" y="255" width="290" height="290" stroke-width="3"/>
       <rect class="r a" x="310" y="310" width="180" height="180" stroke-width="3"/>
       <rect class="r b" x="368" y="368" width="64"  height="64"  stroke-width="3"/>
-      <!-- concentric circles overlay -->
       <circle class="r a" cx="400" cy="400" r="380" stroke-width="1.5" opacity="0.5"/>
       <circle class="r b" cx="400" cy="400" r="320" stroke-width="1.5" opacity="0.5"/>
       <circle class="r a" cx="400" cy="400" r="260" stroke-width="1.5" opacity="0.5"/>
@@ -308,23 +373,23 @@
       <circle class="r b" cx="400" cy="400" r="80"  stroke-width="1.5" opacity="0.5"/>
     </svg>
   </div>
-
+ 
   <div class="overlay"></div>
   <div class="border-frame"></div>
-
+ 
   <div class="wrap">
-
+ 
     <header>
       <p class="course-tag">Brock University &nbsp;·&nbsp; VISA 2P61 &nbsp;·&nbsp; Website Design &nbsp;·&nbsp; Spring 2026</p>
       <h1>DAN</h1>
       <div class="stripe-bar"></div>
       <p class="subtitle">student work index</p>
     </header>
-
+ 
     <!-- ASSIGNMENTS -->
     <section>
       <p class="section-title">Assignments</p>
-
+ 
       <div class="assignment">
         <div class="assignment-header">
           <span class="assignment-name">A1 — Git Labyrinth</span>
@@ -335,7 +400,7 @@
         </div>
         <p class="assignment-desc">Exploring git branching and version control through a navigable structure.</p>
       </div>
-
+ 
       <div class="assignment">
         <div class="assignment-header">
           <span class="assignment-name">A2 — One Image × 5</span>
@@ -346,7 +411,7 @@
         </div>
         <p class="assignment-desc">One image transformed five different ways using HTML and CSS.</p>
       </div>
-
+ 
       <div class="assignment">
         <div class="assignment-header">
           <span class="assignment-name">A3 — Misbehaving Interface</span>
@@ -358,154 +423,169 @@
         <p class="assignment-desc">A form that behaves exactly as intended — just not as you'd expect. Five deliberate misbehaviors targeting spectatorial mastery.</p>
       </div>
     </section>
-
+ 
     <div class="flourish">◉ · ◉ · ◉</div>
-
+ 
     <!-- NOTABLE COMMITS -->
     <section>
       <p class="section-title">Notable Commits — A3</p>
-
+ 
       <div class="commit">
         <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/db00df6" target="_blank">db00df6</a></p>
         <p class="commit-title">BEHAVIOR 3 — self-erasing name input</p>
         <p class="commit-note">Every 3rd keystroke the field deletes, swaps a character, or falsely accuses the user. The most basic expectation of a text field is quietly violated.</p>
       </div>
-
+ 
       <div class="commit">
         <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/7e9f902" target="_blank">7e9f902</a></p>
         <p class="commit-title">BEHAVIOR 2 — gaslighting email feedback</p>
         <p class="commit-note">Success and error messages are assigned randomly regardless of input. The interface confidently lies, creating learned helplessness.</p>
       </div>
-
+ 
       <div class="commit">
         <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/4404d69" target="_blank">4404d69</a></p>
         <p class="commit-title">BEHAVIOR 5 — lying slider</p>
         <p class="commit-note">Labeled "Font Size" — dragging it actually rotates the entire page. The label promises one control while delivering something spatially disorienting.</p>
       </div>
-
+ 
       <div class="commit">
         <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/13f9689" target="_blank">13f9689</a></p>
         <p class="commit-title">BEHAVIOR 4 — multiplying checkboxes</p>
         <p class="commit-note">Each checkbox spawns more with absurd consent terms. A parody of dark-pattern UI — the goal of completion keeps receding forever.</p>
       </div>
-
+ 
       <div class="commit">
         <p class="commit-hash"><a href="https://github.com/DDayDanthony/a3-misbehaving-interface/commit/e60b348" target="_blank">e60b348</a></p>
         <p class="commit-title">BEHAVIOR 1 — fleeing submit button</p>
         <p class="commit-note">The button flees the cursor, shrinks when nearly caught, removes itself on click, then re-spawns randomly with a fake success message followed by an error.</p>
       </div>
-
     </section>
-
+ 
     <div class="flourish">◉ · ◉ · ◉</div>
-
+ 
     <!-- WEEKLY READINGS -->
-<section>
-  <p class="section-title">Weekly Readings</p>
-
-  <!-- WEEK 1 -->
-  <div class="reading-card open" id="card-1">
-    <button class="reading-toggle" onclick="toggle('card-1')">
-      <div class="reading-meta">
-        <span class="reading-week">Week 1</span>
-        <span class="reading-title">The Garden of Forking Paths</span>
-        <span class="reading-author">Jorge Luis Borges, 1941</span>
+    <section>
+      <p class="section-title">Weekly Readings</p>
+ 
+      <!-- WEEK 1 -->
+      <div class="reading-card open" id="card-1">
+        <button class="reading-toggle" onclick="toggle('card-1')">
+          <div class="reading-meta">
+            <span class="reading-week">Week 1</span>
+            <span class="reading-title">The Garden of Forking Paths</span>
+            <span class="reading-author">Jorge Luis Borges, 1941</span>
+          </div>
+          <span class="reading-chevron">▲</span>
+        </button>
+        <div class="reading-body">
+          <ul>
+            <li>The story is a frame-tale; a spy thriller inside historical fiction.</li>
+            <li>The novel and the labyrinth are revealed to be one and the same construct, just taking different forms.</li>
+            <li>Unlike a typical narrative where a character picks one option and moves forward, Ts'ui Pên's novel makes every imaginable choice simultaneously.</li>
+            <li>This makes the book nearly impossible to follow linearly, much like house of leaves, it's "broken" by design.</li>
+            <li>Turning the pages lets you make individual choices without losing access to any other choice; past, present, or future.</li>
+            <li>This connects to git branching: every commit is a fork, every branch a parallel path that doesn't erase the others.</li>
+          </ul>
+          <div class="stripe-bar"></div>
+        </div>
       </div>
-      <span class="reading-chevron">▲</span>
-    </button>
-    <div class="reading-body">
-      <ul>
-        <li>The story is a frame-tale; a spy thriller inside historical fiction.</li>
-        <li>The novel and the labyrinth are revealed to be one and the same construct, just taking different forms.</li>
-        <li>Unlike a typical narrative where a character picks one option and moves forward, Ts'ui Pên's novel makes every imaginable choice simultaneously.</li>
-        <li>This makes the book nearly impossible to follow linearly, much like house of leaves, it's "broken" by design.</li>
-        <li>Turning the pages lets you make individual choices without losing access to any other choice; past, present, or future.</li>
-        <li>This connects to git branching: every commit is a fork, every branch a parallel path that doesn't erase the others.</li>
-      </ul>
-      <div class="stripe-bar"></div>
-    </div>
-  </div>
-
-  <!-- WEEK 2 -->
-  <div class="reading-card" id="card-2">
-    <button class="reading-toggle" onclick="toggle('card-2')">
-      <div class="reading-meta">
-        <span class="reading-week">Week 2</span>
-        <span class="reading-title">The Aesthetic of Failure: Net Art Gone Wrong</span>
-        <span class="reading-author">Michele White, 2002</span>
+ 
+      <!-- WEEK 2 -->
+      <div class="reading-card" id="card-2">
+        <button class="reading-toggle" onclick="toggle('card-2')">
+          <div class="reading-meta">
+            <span class="reading-week">Week 2</span>
+            <span class="reading-title"></span>
+            <span class="reading-author"></span>
+          </div>
+          <span class="reading-chevron">▲</span>
+        </button>
+        <div class="reading-body">
+          <div class="stripe-bar"></div>
+        </div>
       </div>
-      <span class="reading-chevron">▲</span>
-    </button>
-    <div class="reading-body">
-      <ul>
-        <li>Net artists use intentional malfunction, misdirection, and interface breakdown to disrupt the user's sense of control and mastery.</li>
-        <li>This creates critical distance from technology; making the invisible infrastructure visible.</li>
-        <li>White warns the strategy risks becoming an empty style once absorbed into the art establishment.</li>
-        <li>Jodi: pioneers who deliberately broke HTML to make the web's hidden code visible.</li>
-        <li>Peter Luining mashed up computer games and abstract painting to disorient viewers and deny clear interaction.</li>
-        <li>Michaël Samyn used painterly visuals and intentionally counter-intuitive interfaces to critique computer conventions.</li>
-        <li>Broken or unexpected interfaces aren't bugs to fix; githey're the work itself.</li>
-        <li>The 404 as aesthetic object rather than error: failure states can be intentional, even desirable outcomes.</li>
-      </ul>
-      <div class="stripe-bar"></div>
-    </div>
-  </div>
-
-  <!-- WEEK 3 -->
-  <div class="reading-card empty" id="card-3">
-    <button class="reading-toggle" onclick="toggle('card-3')">
-      <div class="reading-meta">
-        <span class="reading-week">Week 3</span>
-        <span class="reading-title">— upcoming —</span>
-        <span class="reading-author">&nbsp;</span>
+ 
+      <!-- WEEK 3 -->
+      <div class="reading-card" id="card-3">
+        <button class="reading-toggle" onclick="toggle('card-3')">
+          <div class="reading-meta">
+            <span class="reading-week">Week 3</span>
+            <span class="reading-title">The Aesthetic of Failure: Net Art Gone Wrong</span>
+            <span class="reading-author">Michele White, 2002</span>
+          </div>
+          <span class="reading-chevron">▲</span>
+        </button>
+        <div class="reading-body">
+          <ul>
+            <li>Net artists use intentional malfunction, misdirection, and interface breakdown to disrupt the user's sense of control and mastery.</li>
+            <li>This creates critical distance from technology; making the invisible infrastructure visible.</li>
+            <li>White warns the strategy risks becoming an empty style once absorbed into the art establishment.</li>
+            <li>Jodi: pioneers who deliberately broke HTML to make the web's hidden code visible.</li>
+            <li>Peter Luining mashed up computer games and abstract painting to disorient viewers and deny clear interaction.</li>
+            <li>Michaël Samyn used painterly visuals and intentionally counter-intuitive interfaces to critique computer conventions.</li>
+            <li>Broken or unexpected interfaces aren't bugs to fix; they're the work itself.</li>
+            <li>The 404 as aesthetic object rather than error: failure states can be intentional, even desirable outcomes.</li>
+          </ul>
+          <div class="stripe-bar"></div>
+        </div>
       </div>
-      <span class="reading-chevron">▲</span>
-    </button>
-    <div class="reading-body">
-      <p class="empty-label">Response not yet submitted</p>
-    </div>
-  </div>
-
-  <!-- WEEK 4 -->
-  <div class="reading-card empty" id="card-4">
-    <button class="reading-toggle" onclick="toggle('card-4')">
-      <div class="reading-meta">
-        <span class="reading-week">Week 4</span>
-        <span class="reading-title">— upcoming —</span>
-        <span class="reading-author">&nbsp;</span>
+ 
+      <!-- WEEK 4 -->
+      <div class="reading-card" id="card-4">
+        <button class="reading-toggle" onclick="toggle('card-4')">
+          <div class="reading-meta">
+            <span class="reading-week">Week 4</span>
+            <span class="reading-title">Software And Drawing</span>
+            <span class="reading-author">Casey Reas, 2025</span>
+          </div>
+          <span class="reading-chevron">▲</span>
+        </button>
+        <div class="reading-body">
+          <ul>
+            <li>LeWitt's wall drawing instructions read almost exactly like pseudocode, breaking a visual problem into simple, ordered steps before any actual implementation.</li>
+            <li>If three people apply the same structure and get wildly different results, what is the "work" exactly: the instruction, the output, or the process?</li>
+            <li>That the mouse interaction added to Wall Drawing #106 with "one line of code" producing a moiré pattern felt like a genuinely radical idea hiding inside a trivial change.</li>
+            <li>Separating concept from application gives creative freedom.</li>
+            <li>You can develop an idea fully in language before worrying about syntax.</li>
+            <li>Could you write instructions vague enough that two classmates working with the same brief get genuinely different, equally valid results?</li>
+            <li>The comparison of programming languages to art materials reframes the way I think about them. Going from strict and rigid to experimental and only limited by what you can think to do with them.</li>
+            <li>If natural language descriptions are more open and expressive than code, does that mean our programs are always a reduction of an idea and never its full expression?</li>
+            <li>The 10-step process Reas reveals for Structure #003 mirrors iterative development: start small, automate, then add layers of complexities.</li>
+            <li>The mystic programmer idea makes me wonder what role accidents and bugs play as creative tools rather than strictly problems to fix.</li>
+          </ul>
+          <div class="stripe-bar"></div>
+        </div>
       </div>
-      <span class="reading-chevron">▲</span>
-    </button>
-    <div class="reading-body">
-      <p class="empty-label">Response not yet submitted</p>
-    </div>
-  </div>
-
-  <!-- WEEK 5 -->
-  <div class="reading-card empty" id="card-5">
-    <button class="reading-toggle" onclick="toggle('card-5')">
-      <div class="reading-meta">
-        <span class="reading-week">Week 5</span>
-        <span class="reading-title">— upcoming —</span>
-        <span class="reading-author">&nbsp;</span>
+ 
+      <!-- WEEK 5 -->
+      <div class="reading-card" id="card-5">
+        <button class="reading-toggle" onclick="toggle('card-5')">
+          <div class="reading-meta">
+            <span class="reading-week">Week 5</span>
+            <span class="reading-title">— upcoming —</span>
+            <span class="reading-author">&nbsp;</span>
+          </div>
+          <span class="reading-chevron">▲</span>
+        </button>
+        <div class="reading-body">
+          <p class="empty-label">Response not yet submitted</p>
+        </div>
       </div>
-      <span class="reading-chevron">▲</span>
-    </button>
-    <div class="reading-body">
-      <p class="empty-label">Response not yet submitted</p>
-    </div>
-  </div>
-
-</section>
-</p1>
-      </div>
+ 
     </section>
-
+ 
     <footer>
       Dan &nbsp;·&nbsp; Brock University &nbsp;·&nbsp; VISA 2P61 &nbsp;·&nbsp; Spring 2026
     </footer>
-
+ 
   </div>
-
+ 
+  <script>
+    function toggle(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('open');
+    }
+  </script>
+ 
 </body>
 </html>
